@@ -20,7 +20,7 @@ public class MvcApplication {
 		SpringApplication.run(MvcApplication.class, args);
 	}
 	
-	@Bean
+	/*@Bean
 	public ViewResolver viewResolver() {
 		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -29,6 +29,6 @@ public class MvcApplication {
 		viewResolver.setSuffix(".jsp");
 		
 		return viewResolver;
-	}
+	}*/
 
 }
