@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     
 <!DOCTYPE html>
@@ -10,8 +11,14 @@
 </head>
 <body>
 <h3>Login Page</h3>
-	<form:form action="${pageContext.request.contextPath}/authenticateTheUser " method="POST">
+	<form:form action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
 	
+	
+	<c:if test="${param.error !=null }">
+	
+	<i class="failed">Błąd! Wprowadzono niepoprawny login lub hasło</i>
+	
+	</c:if>
 	
 	<p>
 		User name: <input type="text" name="username">

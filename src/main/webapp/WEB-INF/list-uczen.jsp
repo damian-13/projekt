@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@  taglib prefix="security" uri="http://www.springframework.org/security/tags"%> 
 <!DOCTYPE html>
 
 <html>
@@ -28,6 +28,12 @@
 	
 		<div id="content">
 		
+			<p>
+				User: <security:authentication property="principal.username" />
+				<br><br>
+				Role(s): <security:authentication property="principal.authorities" />
+			</p>
+			
 			<!-- put new button: Add Customer -->
 			<input type="button" value="Add Uczen"
 				   onclick="window.location.href='showFormForAdd'; return false;"
@@ -83,6 +89,12 @@
 					</tr>
 				
 				</c:forEach>
+				
+				<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+				
+				<input type=submit value="Logout "/>
+				
+				</form:form>
 						
 			</table>
 				
